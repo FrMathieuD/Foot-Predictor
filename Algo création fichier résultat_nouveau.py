@@ -19,7 +19,7 @@ import pandas as pd
 import os 
 
 
-Game_played = pd.read_csv("Base de données/Lien Derly/games.csv")
+Game_played = pd.read_csv("Base de données/games.csv")
 I = ["game_id","competition_id","season","date","home_club_name","away_club_name","home_club_goals","away_club_goals"]
 Game_played=Game_played[I]
 
@@ -30,7 +30,6 @@ Game_played['date'] = pd.to_datetime(Game_played['date'])
 Game_played.sort_values(by='date', inplace = True)
 #Game_index = Game_played[(Game_played["competition_id"] == "GB1") & (Game_played["season"] == 2022)].index
 #Game_played = Game_played.drop(Game_index)
-Game_played.to_csv("/Users/mathieu/Downloads/G.csv")
 Game_played=Game_played[["season","home_club_name","away_club_name","home_club_goals","away_club_goals"]]
 G = Game_played.to_numpy()
 
