@@ -23,9 +23,9 @@ Game_played = pd.read_csv("Base de données/games.csv")
 I = ["game_id","competition_id","season","date","home_club_name","away_club_name","home_club_goals","away_club_goals"]
 Game_played=Game_played[I]
 
-#Game_played = Game_played[(Game_played["competition_id"] == "IT1") | (Game_played["competition_id"] == "FR1") | (Game_played["competition_id"] == "GB1") | (Game_played["competition_id"] == "ES1") | (Game_played["competition_id"] == "L1")]
-Game_played = Game_played[(Game_played["competition_id"] == "GB1") & (Game_played["season"] == 2022)]
-#Game_played = Game_played[(Game_played["season"] == 2018) | (Game_played["season"] == 2019) | (Game_played["season"] == 2020) | (Game_played["season"] == 2021) | (Game_played["season"] == 2022)]
+Game_played = Game_played[(Game_played["competition_id"] == "IT1") | (Game_played["competition_id"] == "FR1") | (Game_played["competition_id"] == "GB1") | (Game_played["competition_id"] == "ES1") | (Game_played["competition_id"] == "L1")]
+#Game_played = Game_played[(Game_played["competition_id"] == "GB1") & (Game_played["season"] == 2022)]
+Game_played = Game_played[(Game_played["season"] == 2018) | (Game_played["season"] == 2019) | (Game_played["season"] == 2020) | (Game_played["season"] == 2021) | (Game_played["season"] == 2022)]
 Game_played['date'] = pd.to_datetime(Game_played['date'])
 Game_played.sort_values(by='date', inplace = True)
 #Game_index = Game_played[(Game_played["competition_id"] == "GB1") & (Game_played["season"] == 2022)].index
@@ -97,7 +97,7 @@ for i in range(Team_game_result.shape[0]):
 DF = pd.DataFrame(np.hstack((Team_game_result[:,:2],Team_game_result[:,3:])),columns=["Home_Team","Away_Team","Forme_dom","Forme_exte"])
 
 # save the dataframe as a csv file
-#DF.to_csv("Team_game_result102_forme_QUE_GB12022.csv")
+#DF.to_csv("Team_game_result102_forme.csv")
        
 tab = pd.DataFrame({"Résultat" : Team_game_result[:,2],
                     "Forme domicile" : Team_game_result[:,3],
